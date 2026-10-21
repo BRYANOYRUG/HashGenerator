@@ -20,10 +20,10 @@ while True:
         except Exception as e:
             print(f"Erro {e}")
     else:
-        print("Rounds não é um numero.")
-    # Gera o salt aleatório (padrão de custo é 12)
+        print("not a number.")
+
     try:
-        if senha.upper() == "EXIT" or rounds_str.upper() == "EXIT":
+        if senha.lower() == "exit" or rounds_str.lower() == "exit":
             os.close(fd=0)
         salt = bcrypt.gensalt(rounds=rounds)
 
@@ -37,7 +37,7 @@ while True:
         erro = True
     if erro is False:
         gerar_hash_yn = input("Deseja gerar outro hash? (S/N)")
-        if gerar_hash_yn.upper() == "S":
+        if gerar_hash_yn.lower() == "s":
             os.system("cls")
         else:
             print("Fechando...")
